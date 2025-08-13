@@ -1,3 +1,8 @@
+let boardItem = { 
+        11: "", 12: "", 13: "",
+        21: "", 22: "", 23: "",
+        31: "", 32: "", 33: "",
+    }   
 
 
 const gameInteraction = (function () { 
@@ -20,40 +25,35 @@ const gameInteraction = (function () {
             e.target.textContent = currentChar;
             switcher(currentChar);
         }
+
+        boardItem[e.target.id] = currentChar;
     })
 
 
 })()
 
 
+const winnerHandler = (function () { 
+
+    if (boardItem[11] == boardItem[12] == boardItem[13] ||
+        boardItem[21] == boardItem[22] == boardItem[23] ||
+        boardItem[31] == boardItem[32] == boardItem[33] ||
+        boardItem[11] == boardItem[21] == boardItem[31] ||
+        boardItem[12] == boardItem[22] == boardItem[32] ||
+        boardItem[13] == boardItem[23] == boardItem[33] ||
+        boardItem[11] == boardItem[22] == boardItem[33] ||
+        boardItem[13] == boardItem[22] == boardItem[31]) {
+            
+            // hmmm....
+    }
 
 
-let boardItem = { 
-    11: "",
-    12: "",
-    13: "",
-    21: "",
-    22: "",
-    23: "",
-    31: "",
-    32: "",
-    33: "",
-}
+    return { boardItem }
 
-let player1 = "X";
-let player2 = "O";
+})() 
 
-// if (boardItem[11] == boardItem[12] == boardItem[13] ||
-//     boardItem[21] == boardItem[22] == boardItem[23] ||
-//     boardItem[31] == boardItem[32] == boardItem[33] ||
-//     boardItem[11] == boardItem[21] == boardItem[31] ||
-//     boardItem[12] == boardItem[22] == boardItem[32] ||
-//     boardItem[13] == boardItem[23] == boardItem[33] ||
-//     boardItem[11] == boardItem[22] == boardItem[33] ||
-//     boardItem[13] == boardItem[22] == boardItem[31]) {
-    
 
-// }
+
 
 
 
