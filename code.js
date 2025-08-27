@@ -19,7 +19,6 @@ const gameInteraction = (function () {
         }
     }
 
-
     gameBoard.addEventListener("click", (e) => { 
         if (e.target.textContent == "") { 
             e.target.textContent = currentChar;
@@ -27,13 +26,21 @@ const gameInteraction = (function () {
         }
 
         boardItem[e.target.id] = currentChar;
+        // call the winner handler for checking :) 
+
+        if (someoneWon()) {
+            // declare a winner with a popup dialog with "Play again" button and "restart button"
+            
+            
+
+        }
     })
 
 
 })()
 
 
-const winnerHandler = (function () { 
+const someoneWon = (function () { 
 
     if (boardItem[11] == boardItem[12] == boardItem[13] ||
         boardItem[21] == boardItem[22] == boardItem[23] ||
@@ -44,30 +51,11 @@ const winnerHandler = (function () {
         boardItem[11] == boardItem[22] == boardItem[33] ||
         boardItem[13] == boardItem[22] == boardItem[31]) {
             
-            // hmmm....
+            return true;
     }
+    return false;
 
-
-    return { boardItem }
-
-})() 
-
-
-
-
-
-
-// method for gameboard (manages eventListener for each cell and calls other methods)
-
-// const gameBoard = (function () { 
-    
-// })();
-
-// method for managing player scores (adding score)
-
-// method that checks for a win after every button press
-
-// method to reset game board and scores 
+})
 
 
 
@@ -101,3 +89,14 @@ const playerManager = (function() {
 
 
 
+const windowLogic = (function () { 
+
+})
+
+
+
+// player names must have a significance (add on top whose turn it is (with some animation))
+
+// button to restart game 
+
+// show display at the end of game 
