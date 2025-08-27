@@ -22,15 +22,16 @@
             <label for="player-2-name" class="playername-label">Player Two Name (O)</label>
             <input type="text" id="player-2-name" class="playername-input" required>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Start Game!</button>
             
         </form>
     </div>
 
     <div class="game-section">
-        <div class="player-names"></div>
+        <div class="player-name-one-display"></div>
+        <div class="player-name-two-display"></div>
         <div class="player-turn-display"></div>
-
+        
         <div class="game-board"> 
             <div class="cell" id="11"></div>
             <div class="cell" id="12"></div>
@@ -42,13 +43,17 @@
             <div class="cell" id="32"></div>
             <div class="cell" id="33"></div>
         </div>
+        <div>
+            <button class="restart-btn">Restart Game!</button>
+        </div>
     </div>
 
     <div class="end-section">
-        <dialog>
+        <dialog id="end-dialog">
             <div class="dialog-header"></div>
-            <button class="dialog-restart-button">Restart!</button>
-            <button class="dialog-playagain-button">Play again!</button>
+            <button class="dialog-playagain-button replay-btn">Play again!</button>
+            <button class="dialog-restart-button restart-btn">Restart!</button>
+            
         </dialog>
     </div>
     
