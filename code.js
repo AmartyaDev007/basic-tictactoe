@@ -4,6 +4,30 @@ let boardItem = {
         31: "", 32: "", 33: "",
     }   
 
+const startInteraction = (function() { 
+    let playerOneName = "";
+    let playerTwoName = "";
+
+    document.querySelector(".starter-form").addEventListener("submit", (e) => { 
+        e.preventDefault();
+
+        playerOneName = document.querySelector("#player-1-name").value;
+        playerTwoName = document.querySelector("#player-2-name").value;
+
+        if (playerOneName === "" || playerTwoName === "") { 
+            return;
+        }
+        
+        document.querySelector(".starter-section").style.display = "none";
+        document.querySelector(".game-section").style.display = "block";
+    });
+
+    return { 
+        getPlayerOneName: () => playerOneName,
+        getPlayerTwoName: () => playerTwoName,
+    }
+})();
+
 
 const gameInteraction = (function () { 
     let currentChar = "X";
@@ -29,10 +53,11 @@ const gameInteraction = (function () {
         // call the winner handler for checking :) 
 
         if (someoneWon()) {
+            // first find who won by finding the currentChar and the player associated 
             // declare a winner with a popup dialog with "Play again" button and "restart button"
-            
-            
+            switcher(currentChar);
 
+            winnerHandler(currentChar);
         }
     })
 
@@ -40,58 +65,36 @@ const gameInteraction = (function () {
 })()
 
 
-const someoneWon = (function () { 
+const someoneWon = function () { 
 
-    if (boardItem[11] == boardItem[12] == boardItem[13] ||
-        boardItem[21] == boardItem[22] == boardItem[23] ||
-        boardItem[31] == boardItem[32] == boardItem[33] ||
-        boardItem[11] == boardItem[21] == boardItem[31] ||
-        boardItem[12] == boardItem[22] == boardItem[32] ||
-        boardItem[13] == boardItem[23] == boardItem[33] ||
-        boardItem[11] == boardItem[22] == boardItem[33] ||
-        boardItem[13] == boardItem[22] == boardItem[31]) {
-            
-            return true;
+    const b = boardItem; 
+
+    function isWinningLine(a, b, c) {
+        return (a === b && b === c && (a === "X" || a === "O"));
     }
+
+    if (
+        isWinningLine(b[11], b[12], b[13]) ||
+        isWinningLine(b[21], b[22], b[23]) ||
+        isWinningLine(b[31], b[32], b[33]) ||
+        isWinningLine(b[11], b[21], b[31]) ||
+        isWinningLine(b[12], b[22], b[32]) ||
+        isWinningLine(b[13], b[23], b[33]) ||
+        isWinningLine(b[11], b[22], b[33]) ||
+        isWinningLine(b[13], b[22], b[31])
+    ) {
+        return true;
+    }
+
     return false;
 
-})
+};
 
-
-
-const playerManager = (function() { 
-    let playerOneScore = 0;
-    let playerTwoScore = 0;
-
-    function addScore(player) { 
-        if (player == "X") { 
-            playerOneScore++;
-        } else { 
-            playerTwoScore++;
-        }
-    }
-
-    const resetScore = () => { 
-        playerOneScore = 0;
-        playerTwoScore = 0;
-    }
-
-
-    return { 
-        addScore,
-        getPlayerOneScore: () => playerOneScore,
-        getPlayerTwoScore: () => playerTwoScore,
-        resetScore,
-    }
-
+function winnerHandler() { 
     
-})() 
+}
 
 
-
-const windowLogic = (function () { 
-
-})
 
 
 
