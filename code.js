@@ -26,7 +26,7 @@ const startInteraction = (function() {
         document.querySelector(".game-section").style.display = "block";
 
         document.querySelector(".player-name-one-display").textContent = "Player " + playerOneName + " (X)";
-        document.querySelector(".player-name-two-display").textContent = "Player" + playerTwoName + " (O)";
+        document.querySelector(".player-name-two-display").textContent = "Player " + playerTwoName + " (O)";
         document.querySelector(".player-turn-display").textContent = playerOneName + "'s Turn!";
     });
 
@@ -151,9 +151,9 @@ function winnerHandler(winnerSign) {
     const dialogWinnerDisplay = document.querySelector(".dialog-header");
 
     if (winnerSign == "X") { 
-        dialogWinnerDisplay.textContent = "Player" + startInteraction.getPlayerOneName() + "Won!";
+        dialogWinnerDisplay.textContent = "Player " + startInteraction.getPlayerOneName() + " Won!";
     } else { 
-        dialogWinnerDisplay.textContent = "Player" + startInteraction.getPlayerTwoName() + "Won!";
+        dialogWinnerDisplay.textContent = "Player " + startInteraction.getPlayerTwoName() + " Won!";
     }
 }
 

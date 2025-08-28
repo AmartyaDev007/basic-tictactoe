@@ -14,45 +14,58 @@
     
     <div class="starter-section">
         <form class="starter-form">
-        
+            
             <div class="starter-heading">Enter Player Names</div>
-            <label for="player-1-name" class="playername-label">Player One Name (X)</label>
-            <input type="text" id="player-1-name" class="playername-input" required>
+            <div>
+                <div>
+                    <label for="player-1-name" class="playername-label">Player One Name (X):</label>
+                    <input type="text" id="player-1-name" class="playername-input" required>
+                </div>
 
-            <label for="player-2-name" class="playername-label">Player Two Name (O)</label>
-            <input type="text" id="player-2-name" class="playername-input" required>
-
+                <div>
+                    <label for="player-2-name" class="playername-label">Player Two Name (O):</label>
+                    <input type="text" id="player-2-name" class="playername-input" required>
+                </div>
+            </div>
             <button type="submit">Start Game!</button>
             
         </form>
     </div>
 
     <div class="game-section">
-        <div class="player-name-one-display"></div>
-        <div class="player-name-two-display"></div>
-        <div class="player-turn-display"></div>
+
+        <div class="game-section-main">
+
         
-        <div class="game-board"> 
-            <div class="cell" id="11"></div>
-            <div class="cell" id="12"></div>
-            <div class="cell" id="13"></div>
-            <div class="cell" id="21"></div>
-            <div class="cell" id="22"></div>
-            <div class="cell" id="23"></div>
-            <div class="cell" id="31"></div>
-            <div class="cell" id="32"></div>
-            <div class="cell" id="33"></div>
-        </div>
-        <div>
-            <button class="restart-btn">Restart Game!</button>
+            <div class="player-name-one-display"></div>
+            
+            <div class="player-turn-display"></div>
+            
+            <div class="game-board"> 
+                <div class="cell" id="11"></div>
+                <div class="cell" id="12"></div>
+                <div class="cell" id="13"></div>
+                <div class="cell" id="21"></div>
+                <div class="cell" id="22"></div>
+                <div class="cell" id="23"></div>
+                <div class="cell" id="31"></div>
+                <div class="cell" id="32"></div>
+                <div class="cell" id="33"></div>
+            </div>
+            <div class="player-name-two-display"></div>
+            <div class="restart-button-div">
+                <button class="restart-btn restart-btn-game-board">Restart Game!</button>
+            </div>
         </div>
     </div>
 
     <div class="end-section">
         <dialog id="end-dialog">
             <div class="dialog-header"></div>
-            <button class="dialog-playagain-button replay-btn">Play again!</button>
-            <button class="dialog-restart-button restart-btn">Restart!</button>
+            <div class="dialog-buttons">
+                <button class="dialog-playagain-button replay-btn">Play again!</button>
+                <button class="dialog-restart-button restart-btn">Restart!</button>
+            </div>
             
         </dialog>
     </div>
